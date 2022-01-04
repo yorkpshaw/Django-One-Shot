@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main>
+    <a href="{% url 'todo_list_list' %}">Back to list</a>
+    <a href="{% url 'todo_list_update' todolist.id %}">Edit</a>
+    <a href="{% url 'todo_list_delete' todolist.id %}">Delete</a>
+    <h1>{{ todolist.name }}</h1>
+    <h2>Tasks</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Due date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in todolist.items.all %}
+          <tr>
+            <td>
+              <a href="{% url 'todo_item_update' item.id %}">
+                {{ item.task }}
+              </a>
+            </td>
+            <td>{{ item.due_date|date:"M d, Y"}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+{% endblock content %}
