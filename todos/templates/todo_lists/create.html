@@ -2,10 +2,13 @@
 
 {% block content %}
   <main>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button>Submit</button>
-    </form>
+    <div>
+      <h1>Create a new list</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Submit</button>
+      </form>
+    </div>
   </main>
 {% endblock content %}
