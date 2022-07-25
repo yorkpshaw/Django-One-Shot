@@ -67,7 +67,7 @@ def update_todo_list(request, pk):
     else:
         todolist = get_object_or_404(TodoList, pk=pk)
         form = TodoListForm(instance=todolist)
-    return render(request, "todo_lists/create.html", {"form": form})
+    return render(request, "todo_lists/update.html", {"form": form})
 
 
 # class TodoListDeleteView(DeleteView):
