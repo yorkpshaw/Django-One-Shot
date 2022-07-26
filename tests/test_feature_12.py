@@ -114,7 +114,7 @@ class TestTodoItemCreateView(TestCase):
         buttons = form.get_all_children("button")
         found_button = None
         for button in buttons:
-            if button.inner_text().strip() == "Create":
+            if button.inner_text().strip().lower() == "create":
                 found_button = button
                 break
         self.assertIsNotNone(

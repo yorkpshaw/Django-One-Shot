@@ -67,8 +67,8 @@ class TestTodoListView(TestCase):
             msg="The response did not have an h1 tag as a direct child of the div",  # noqa: E501
         )
         self.assertIn(
-            "My lists",
-            h1.inner_text(),
+            "My lists".lower(),
+            h1.inner_text().lower(),
             msg="h1 did not have content 'My lists'",
         )
 
@@ -91,13 +91,13 @@ class TestTodoListView(TestCase):
             msg="The response did not have a table tag as a direct child of the div",  # noqa: E501
         )
         self.assertIn(
-            "Name",
-            table.inner_text(),
+            "name",
+            table.inner_text().lower(),
             msg="table did not have 'Name' header in it",
         )
         self.assertIn(
-            "Number of items",
-            table.inner_text(),
+            "number of items",
+            table.inner_text().lower(),
             msg="table did not have 'Number of items' in it'",
         )
 
