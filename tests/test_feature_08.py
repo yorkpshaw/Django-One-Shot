@@ -75,8 +75,8 @@ class TestTodoListDetailView(TestCase):
         document.feed(response.content.decode("utf-8"))
         html = document.select("html")
         self.assertIn(
-            "Task",
-            html.inner_text(),
+            "task",
+            html.inner_text().lower(),
             msg="Did not find the header 'Task' in the detail page",
         )
 
@@ -90,8 +90,8 @@ class TestTodoListDetailView(TestCase):
         document.feed(response.content.decode("utf-8"))
         html = document.select("html")
         self.assertIn(
-            "Due date",
-            html.inner_text(),
+            "due date",
+            html.inner_text().lower(),
             msg="Did not find the header 'Due date' in the detail page",
         )
 
