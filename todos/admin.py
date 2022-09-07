@@ -1,9 +1,15 @@
 from django.contrib import admin
 from todos.models import TodoList
+from todos.models import TodoItem
 
 
-class TodolistAdmin(admin.ModelAdmin):
+class TodoListAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(TodoList, TodolistAdmin)
+class TodoItemAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(TodoList, TodoListAdmin)
+admin.site.register(TodoItem, TodoItemAdmin)
