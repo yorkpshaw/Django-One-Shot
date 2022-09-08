@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <main>
 <div>
 <h1>My Lists</h1>
@@ -18,21 +11,15 @@
     </tr>
    </thead>
    <tbody>
+    {% for item in todolist_list %}
     <tr>
-        <td>Reminders</td>
-    </tr>
-<tr>
-    <td>Grocery List</td>
+    <td><a href="{% url 'todo_list_detail' item.pk %}">{{ item.name }}</a></td>
+    <td>{{ item.items.all|length }}
+    </td>
 </tr>
-
+{% endfor %}
    </tbody>
 </table>
-
 </div>
-
-
-
     </main>
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+<div>
+<h1><td>{{ detailpage }}</td></h1>
+<h2>Tasks</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Due date</th>
+        </tr>
+    </thead>
+<tbody>
+    {% for task in detailpage.items.all %}
+<tr>
+<td> {{ task }} </td>
+<td> {{ task.due_date|date:"M d, Y" }} </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</main>
+{% endblock content %}
